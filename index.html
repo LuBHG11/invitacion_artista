@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invitación Especial · Toño Muñoz Barua · Promoción 2026-II</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Josefin+Sans:wght@200;300;400;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --gold-pale: #f5e6c0;
+      --navy: #0a1628;
+      --navy-mid: #122040;
+      --navy-soft: #1c3060;
+      --cream: #fdf8ee;
+      --white: #ffffff;
+      --text-light: #d4c9a8;
+      --accent-red: #D92228;
+      /* UTP Color subtle touch */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+      background: var(--navy);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ── PARTICLES & FLOATING SHAPES ── */
+    #particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+      opacity: 0;
+      animation: floatUp linear infinite;
+    }
+
+    .floating-shape {
+      position: absolute;
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: drift 20s infinite alternate ease-in-out;
+    }
+
+    .shape1 {
+      width: 300px;
+      height: 300px;
+      top: 10%;
+      left: -100px;
+      animation-delay: 0s;
+    }
+
+    .shape2 {
+      width: 500px;
+      height: 500px;
+      top: 40%;
+      right: -200px;
+      animation-delay: -5s;
+    }
+
+    .shape3 {
+      width: 200px;
+      height: 200px;
+      bottom: 10%;
+      left: 20%;
+      animation-delay: -10s;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 0.8;
+      }
+
+      80% {
+        opacity: 0.4;
+      }
+
+      100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    @keyframes drift {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+
+      100% {
+        transform: translate(50px, 50px) rotate(45deg);
+      }
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+    }
+
+    /* ────────────────────────────
+       HERO
+    ──────────────────────────── */
+    #hero {
+      background: radial-gradient(circle at 50% 30%, #1c3a70 0%, var(--navy) 70%);
+      text-align: center;
+      gap: 24px;
+      overflow: hidden;
+    }
+
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.15;
+      background: url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=1400&auto=format&fit=crop&q=80') center/cover no-repeat;
+      animation: slowZoom 30s infinite alternate;
+    }
+
+    @keyframes slowZoom {
+      from {
+        transform: scale(1);
+      }
+
+      to {
+        transform: scale(1.1);
+      }
+    }
+
+    .hero-emblem {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: rgba(255, 255, 255, 0.95);
+      animation: pulseGlow 4s infinite alternate;
+      box-shadow: 0 0 40px rgba(201, 168, 76, 0.3);
+      z-index: 2;
+    }
+
+    .hero-emblem::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border: 1px dashed var(--gold);
+      border-radius: 50%;
+      animation: spin 20s linear infinite;
+    }
+
+    .hero-emblem img {
+      width: 90px;
+      height: auto;
+      object-fit: contain;
+      z-index: 3;
+    }
+
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes pulseGlow {
+      from {
+        box-shadow: 0 0 30px rgba(201, 168, 76, 0.2), inset 0 0 20px rgba(201, 168, 76, 0.1);
+      }
+
+      to {
+        box-shadow: 0 0 60px rgba(201, 168, 76, 0.6), inset 0 0 40px rgba(201, 168, 76, 0.2);
+      }
+    }
+
+    .hero-label {
+      font-size: 12px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.3s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 12vw, 100px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--white);
+      opacity: 0;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      animation: fadeInUp 1s ease 0.6s forwards;
+    }
+
+    .hero-title span {
+      color: var(--gold-light);
+      font-style: italic;
+      display: block;
+      font-size: clamp(56px, 14vw, 110px);
+    }
+
+    .hero-sub {
+      font-size: clamp(14px, 3.5vw, 18px);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.9s forwards;
+    }
+
+    .hero-divider {
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 12px auto;
+      opacity: 0;
+      animation: scaleXIn 1s ease 1.1s forwards;
+    }
+
+    @keyframes scaleXIn {
+      from {
+        transform: scaleX(0);
+        opacity: 0;
+      }
+
+      to {
+        transform: scaleX(1);
+        opacity: 1;
+      }
+    }
+
+    .hero-promo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 5vw, 30px);
+      font-weight: 400;
+      color: var(--gold-pale);
+      letter-spacing: 2px;
+      opacity: 0;
+      animation: fadeInUp 1s ease 1.3s forwards;
+    }
+
+    .scroll-hint {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeInUp 1s ease 2s forwards;
+      cursor: pointer;
+    }
+
+    .scroll-hint span {
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .scroll-arrow {
+      width: 24px;
+      height: 24px;
+      border-right: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+      transform: rotate(45deg);
+      animation: bounce 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: rotate(45deg) translate(0, 0);
+      }
+
+      50% {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ────────────────────────────
+       INTRO MESSAGE WITH IMAGE
+    ──────────────────────────── */
+    #intro {
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-mid) 100%);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      max-width: 1200px;
+      align-items: center;
+    }
+
+    .intro-image-container {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .intro-image-container::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      transform: scale(0.95);
+      transition: transform 0.5s ease;
+    }
+
+    .intro-image-container:hover::after {
+      transform: scale(0.98);
+    }
+
+    .intro-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+
+    .intro-image-container:hover img {
+      transform: scale(1.05);
+    }
+
+    .intro-content {
+      text-align: left;
+    }
+
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-label::before,
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.3;
+    }
+
+    .quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 140px;
+      line-height: 0.5;
+      color: var(--gold);
+      opacity: 0.15;
+      display: block;
+      margin-bottom: 20px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .intro-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--cream);
+    }
+
+    .intro-text strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* ────────────────────────────
+       CARD - A QUIEN VA DIRIGIDO
+    ──────────────────────────── */
+    #destinatario {
+      background: var(--navy-mid);
+      position: relative;
+    }
+
+    .dest-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1400&auto=format&fit=crop&q=80') center/cover fixed;
+      opacity: 0.05;
+      z-index: 0;
+    }
+
+    .dest-card {
+      max-width: 800px;
+      width: 100%;
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      padding: 70px 50px;
+      position: relative;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(28, 48, 96, 0.85), rgba(10, 22, 40, 0.95));
+      backdrop-filter: blur(16px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+      z-index: 1;
+      transform: translateY(0);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .dest-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+    }
+
+    .dest-card::before,
+    .dest-card::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-color: var(--gold);
+      border-style: solid;
+      transition: all 0.5s ease;
+    }
+
+    .dest-card::before {
+      top: -2px;
+      left: -2px;
+      border-width: 2px 0 0 2px;
+    }
+
+    .dest-card::after {
+      bottom: -2px;
+      right: -2px;
+      border-width: 0 2px 2px 0;
+    }
+
+    .dest-card:hover::before {
+      width: 80px;
+      height: 80px;
+    }
+
+    .dest-card:hover::after {
+      width: 80px;
+      height: 80px;
+    }
+
+    .dest-to {
+      font-size: 12px;
+      letter-spacing: 6px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .dest-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 8vw, 66px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .dest-title {
+      font-size: 14px;
+      letter-spacing: 3px;
+      color: var(--text-light);
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .dest-ornament {
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      margin: 32px 0;
+      opacity: 0.6;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .dest-ornament span {
+      animation: pulse 2s infinite alternate;
+    }
+
+    .dest-ornament span:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    .dest-ornament span:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    @keyframes pulse {
+      from {
+        opacity: 0.3;
+        transform: scale(0.8);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+    .dest-asunto {
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: var(--gold-pale);
+      text-transform: uppercase;
+      line-height: 1.8;
+      background: rgba(201, 168, 76, 0.1);
+      padding: 16px 24px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    /* ────────────────────────────
+       INVITATION REVEAL
+    ──────────────────────────── */
+    #invitacion {
+      background: linear-gradient(180deg, var(--navy-mid) 0%, #0d1f45 50%, var(--navy-mid) 100%);
+      text-align: center;
+      gap: 0;
+    }
+
+    .inv-eyebrow {
+      font-size: 12px;
+      letter-spacing: 6px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      display: inline-block;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 8px;
+    }
+
+    .inv-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 10vw, 88px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .inv-main span {
+      display: block;
+      color: var(--gold-light);
+      font-style: italic;
+    }
+
+    .inv-divider {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      justify-content: center;
+      margin: 40px 0;
+    }
+
+    .inv-divider-line {
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold));
+    }
+
+    .inv-divider-line.rev {
+      background: linear-gradient(to left, transparent, var(--gold));
+    }
+
+    .inv-divider-diamond {
+      width: 12px;
+      height: 12px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      box-shadow: 0 0 10px var(--gold);
+      animation: rotateDiamond 4s linear infinite;
+    }
+
+    @keyframes rotateDiamond {
+      0% {
+        transform: rotate(45deg);
+      }
+
+      100% {
+        transform: rotate(405deg);
+      }
+    }
+
+    .inv-body {
+      max-width: 750px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 3.5vw, 26px);
+      line-height: 1.8;
+      color: var(--cream);
+      font-weight: 300;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      border-radius: 8px;
+      border-left: 3px solid var(--gold);
+    }
+
+    .inv-body strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* ────────────────────────────
+       FECHAS Y LUGAR
+    ──────────────────────────── */
+    #evento {
+      background: var(--navy);
+    }
+
+    .evento-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      max-width: 1000px;
+      width: 100%;
+      margin-top: 56px;
+    }
+
+    .evento-card {
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      padding: 50px 40px;
+      text-align: center;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      background: linear-gradient(to bottom, rgba(28, 48, 96, 0.2), rgba(10, 22, 40, 0.6));
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .evento-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .evento-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--gold);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(201, 168, 76, 0.2);
+    }
+
+    .evento-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .evento-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+      display: block;
+      filter: drop-shadow(0 0 10px rgba(201, 168, 76, 0.4));
+      animation: bounceHover 2s infinite;
+    }
+
+    @keyframes bounceHover {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .evento-label {
+      font-size: 11px;
+      letter-spacing: 5px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .evento-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 5vw, 36px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .evento-detail {
+      font-size: 14px;
+      color: var(--text-light);
+      letter-spacing: 1px;
+    }
+
+    /* ────────────────────────────
+       FOTO UNIVERSIDAD
+    ──────────────────────────── */
+    #universidad {
+      background: var(--navy-mid);
+      padding: 0;
+      min-height: 70vh;
+    }
+
+    .univ-image-wrap {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      overflow: hidden;
+    }
+
+    .univ-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.5) saturate(0.8);
+      transform: scale(1.1);
+      transition: transform 10s ease, filter 0.5s ease;
+    }
+
+    .univ-image-wrap:hover img {
+      transform: scale(1);
+      filter: brightness(0.6) saturate(1);
+    }
+
+    .univ-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 22, 40, 0.9) 0%, rgba(10, 22, 40, 0.3) 50%, rgba(10, 22, 40, 0.7) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      gap: 20px;
+    }
+
+    .univ-logo-overlay {
+      width: 80px;
+      height: 80px;
+      background: white;
+      border-radius: 50%;
+      padding: 15px;
+      margin-bottom: 10px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+
+    .univ-logo-overlay img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: none;
+      transform: none;
+    }
+
+    .univ-label {
+      font-size: 12px;
+      letter-spacing: 6px;
+      color: var(--gold);
+      text-transform: uppercase;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(201, 168, 76, 0.3);
+    }
+
+    .univ-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 7vw, 64px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.1;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    }
+
+    .univ-sub {
+      font-size: 14px;
+      color: var(--gold-pale);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* ────────────────────────────
+       CIERRE / FIRMA
+    ──────────────────────────── */
+    #cierre {
+      background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy) 100%);
+      text-align: center;
+      gap: 32px;
+      padding: 120px 24px;
+      position: relative;
+    }
+
+    .cierre-ornament {
+      font-size: 56px;
+      line-height: 1;
+      color: var(--gold);
+      opacity: 0.8;
+      animation: spinSlow 10s linear infinite;
+    }
+
+    @keyframes spinSlow {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .cierre-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 4.5vw, 32px);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cierre-firma {
+      margin-top: 40px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 40px;
+      border-radius: 8px;
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      display: inline-block;
+    }
+
+    .cierre-firma-line {
+      width: 150px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 24px;
+    }
+
+    .cierre-firma-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 5vw, 36px);
+      color: var(--gold-light);
+      font-style: italic;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .cierre-firma-sub {
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: var(--text-light);
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    .cierre-year {
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: clamp(100px, 25vw, 200px);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      color: rgba(201, 168, 76, 0.03);
+      line-height: 1;
+      letter-spacing: 12px;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* ────────────────────────────
+       FOOTER
+    ──────────────────────────── */
+    footer {
+      background: #050a12;
+      text-align: center;
+      padding: 40px 24px;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(201, 168, 76, 0.1);
+    }
+
+    footer p {
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: rgba(201, 168, 76, 0.5);
+      text-transform: uppercase;
+    }
+
+    /* ────────────────────────────
+       SCROLL REVEAL ANIMATIONS
+    ──────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .reveal.fade-left {
+      transform: translateX(-50px);
+    }
+
+    .reveal.fade-right {
+      transform: translateX(50px);
+    }
+
+    .reveal.zoom-in {
+      transform: scale(0.9);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translate(0) scale(1);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.15s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.3s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.45s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: 0.6s;
+    }
+
+    /* ────────────────────────────
+       RESPONSIVE
+    ──────────────────────────── */
+    @media (max-width: 900px) {
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .intro-image-container {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 60px 20px;
+      }
+
+      .dest-card {
+        padding: 50px 24px;
+      }
+
+      .evento-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .hero-emblem {
+        width: 110px;
+        height: 110px;
+      }
+
+      .hero-emblem img {
+        width: 70px;
+      }
+
+      .section-label {
+        justify-content: center;
+      }
+
+      .section-label::before,
+      .section-label::after {
+        display: none;
+      }
+
+      .inv-body {
+        padding: 24px;
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating shapes for structured background -->
+  <div class="floating-shape shape1"></div>
+  <div class="floating-shape shape2"></div>
+  <div class="floating-shape shape3"></div>
+
+  <!-- Floating particles -->
+  <div id="particles"></div>
+
+  <!-- ══ HERO ══ -->
+  <section id="hero">
+    <div class="hero-bg-img"></div>
+    <div class="hero-emblem reveal zoom-in">
+      <!-- Logo UTP -->
+      <img src="https://camaraica.org.pe/wp-content/uploads/2024/04/UTP-png.avif" alt="Escudo UTP" />
+    </div>
+    <p class="hero-label">Universidad Tecnológica del Perú · 2026</p>
+    <h1 class="hero-title">Nuestro Invitado<br><span>Especial</span></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">Ingeniería de Sistemas e Informática</p>
+    <p class="hero-promo">Promoción 2026 - II</p>
+    <div class="scroll-hint" onclick="document.getElementById('intro').scrollIntoView()">
+      <span>Descubrir</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ══ INTRO ══ -->
+  <section id="intro">
+    <div class="intro-grid">
+      <div class="intro-content">
+        <div class="section-label reveal fade-right">Una ocasión especial</div>
+        <span class="quote-mark reveal fade-right">"</span>
+        <p class="intro-text reveal fade-right reveal-delay-1">
+          Para celebrar el cierre de nuestra carrera universitaria, queremos que la música sea protagonista de la noche.
+          Contar con tu
+          <strong>presencia y talento</strong> sería un verdadero honor y el complemento ideal para nuestra graduación.
+        </p>
+      </div>
+      <div class="intro-image-container reveal fade-left reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&auto=format&fit=crop&q=80"
+          alt="Presentación Musical en Vivo">
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ DESTINATARIO ══ -->
+  <section id="destinatario">
+    <div class="dest-bg"></div>
+    <div class="section-label reveal" style="justify-content: center; max-width: 800px; margin: 0 auto 30px;">Dirigido a
+    </div>
+    <div class="dest-card reveal zoom-in reveal-delay-1">
+      <p class="dest-to">Con admiración y gran aprecio, para</p>
+      <h2 class="dest-name">Toño Muñoz Barua</h2>
+      <p class="dest-title">Artista Especial Invitado</p>
+      <div class="dest-ornament">
+        <span>♪</span><span>✦</span><span>♫</span>
+      </div>
+      <p class="dest-asunto">
+        Asunto:<br>
+        Invitación Formal como Artista Especial de Gala<br>
+        Promoción Ingeniería de Sistemas e Informática 2026-II
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ INVITACIÓN ══ -->
+  <section id="invitacion">
+    <p class="inv-eyebrow reveal">Invitación Formal</p>
+    <h2 class="inv-main reveal reveal-delay-1">
+      Nos encantaría contar<br><span>con tu participación</span>
+    </h2>
+    <div class="inv-divider reveal reveal-delay-2">
+      <div class="inv-divider-line"></div>
+      <div class="inv-divider-diamond"></div>
+      <div class="inv-divider-line rev"></div>
+    </div>
+    <p class="inv-body reveal reveal-delay-3" style="margin: 0 auto;">
+      Agradeciendo de antemano tu amable disposición para acompañarnos cantando, te extendemos esta <strong>invitación
+        formal</strong> para participar como nuestro <strong>Artista Especial en la Gala de Graduación</strong>.<br><br>
+      Será muy grato y un gran honor recibirte y disfrutar de tu música en este evento tan importante para toda la
+      promoción.
+    </p>
+  </section>
+
+  <!-- ══ EVENTO ══ -->
+  <section id="evento">
+    <div class="section-label reveal" style="justify-content: center; margin-bottom: 20px;">Los detalles</div>
+    <h3 class="inv-main reveal reveal-delay-1" style="font-size:clamp(32px,7vw,64px); text-align: center;">
+      Celebración<br><span>de Graduación</span></h3>
+    <div class="evento-grid">
+      <div class="evento-card reveal fade-right reveal-delay-1">
+        <span class="evento-icon">🗓️</span>
+        <p class="evento-label">Fechas</p>
+        <p class="evento-value">8 y 9 de Enero</p>
+        <p class="evento-detail">2027</p>
+      </div>
+      <div class="evento-card reveal zoom-in reveal-delay-2">
+        <span class="evento-icon">📍</span>
+        <p class="evento-label">Lugar</p>
+        <p class="evento-value">Fundo Las Palmeras</p>
+        <p class="evento-detail">Jardín La Huega · Ica</p>
+      </div>
+      <div class="evento-card reveal fade-left reveal-delay-3">
+        <span class="evento-icon">🎤</span>
+        <p class="evento-label">Presentación</p>
+        <p class="evento-value">Show Especial</p>
+        <p class="evento-detail">Promoción 2026 - II</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ UNIVERSIDAD (foto) ══ -->
+  <section id="universidad" style="min-height:auto;">
+    <div class="univ-image-wrap">
+      <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1400&auto=format&fit=crop&q=80"
+        alt="Universidad Tecnológica del Perú" />
+      <div class="univ-overlay">
+        <div class="univ-logo-overlay reveal zoom-in">
+          <img src="https://camaraica.org.pe/wp-content/uploads/2024/04/UTP-png.avif" alt="UTP Logo">
+        </div>
+        <p class="univ-label reveal reveal-delay-1">Nuestra casa de estudios</p>
+        <h2 class="univ-name reveal reveal-delay-2">Universidad Tecnológica<br>del Perú</h2>
+        <p class="univ-sub reveal reveal-delay-3">Ica · Perú</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CIERRE ══ -->
+  <section id="cierre">
+    <p class="cierre-year">2026</p>
+    <div class="cierre-ornament reveal">❂</div>
+    <p class="cierre-text reveal reveal-delay-1">
+      Agradecemos mucho tu tiempo y amabilidad al considerar esta invitación. Quedamos atentos para coordinar contigo
+      todos los detalles de tu presentación.
+    </p>
+    <div class="cierre-firma reveal zoom-in reveal-delay-2">
+      <div class="cierre-firma-line"></div>
+      <p class="cierre-firma-name">Atentamente,</p>
+      <p class="cierre-firma-name" style="font-style:normal; color:var(--white);">Promoción 2026-II</p>
+      <p class="cierre-firma-sub">Ingeniería de Sistemas e Informática</p><br>
+      <p class="cierre-firma-sub" style="margin-top:8px; color:rgba(201,168,76,0.6); font-weight: 600;">Ica-Perú</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Promoción Ing. Sistemas e Informática · 2026-II · UTP · Ica, Perú</p>
+  </footer>
+
+  <script>
+    // ── Particles
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 40; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random() * 5 + 2;
+      p.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random() * 100}%;
+      animation-duration:${Math.random() * 20 + 10}s;
+      animation-delay:${Math.random() * 15}s;
+      opacity:0;
+    `;
+      container.appendChild(p);
+    }
+
+    // ── Scroll reveal with advanced config
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+    reveals.forEach(el => io.observe(el));
+
+    // Hero elements animate immediately
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('#hero .reveal').forEach(el => {
+        setTimeout(() => el.classList.add('visible'), 150);
+      });
+    });
+  </script>
+</body>
+
+</html>
